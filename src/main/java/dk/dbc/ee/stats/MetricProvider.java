@@ -21,6 +21,8 @@ import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import java.lang.reflect.Member;
+import javax.ejb.Lock;
+import javax.ejb.LockType;
 import javax.ejb.Singleton;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.Annotated;
@@ -32,6 +34,7 @@ import javax.inject.Inject;
  * @author Source (source (at) dbc.dk)
  */
 @Singleton
+@Lock(LockType.READ)
 public class MetricProvider {
 
     @Inject
