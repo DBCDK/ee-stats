@@ -172,7 +172,7 @@ var pie = (function (elementId) {
 
 
 var jolokia = (function () {
-    var order = "Count Min Mean Max 50thPercentile 75thPercentile 98thPercentile 95thPercentile 99thPercentile 999thPercentile MeanRate OneMinuteRate FiveMinuteRate FifteenMinuteRate StdDev RateUnit DurationUnit".split(" ");
+    var order = "Count Min Mean Max 50thPercentile 75thPercentile 95thPercentile 98thPercentile 99thPercentile 999thPercentile MeanRate OneMinuteRate FiveMinuteRate FifteenMinuteRate StdDev RateUnit DurationUnit".split(" ");
 
     var get = function (url, func) {
         var r = new XMLHttpRequest();
