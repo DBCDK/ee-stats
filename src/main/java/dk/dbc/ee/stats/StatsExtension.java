@@ -52,6 +52,7 @@ import javax.interceptor.InvocationContext;
  *
  * @author Source (source (at) dbc.dk)
  */
+@SuppressWarnings("PMD.UnusedPrivateMethod")
 class StatsExtension implements Extension {
 
     private final HashMap<Executable, String> mappedNames = new HashMap<>();
@@ -64,6 +65,7 @@ class StatsExtension implements Extension {
         bbd.addInterceptorBinding(LifeCycleMetric.class);
     }
 
+    @SuppressWarnings("PMD.UnusedFormalParameter")
     private void afterBeanDiscovery(@Observes AfterBeanDiscovery abd, BeanManager manager) {
         if (manager.getBeans(MetricRegistry.class).isEmpty()) {
             abd.addBean(new MetricRegistryBean(manager));
@@ -104,8 +106,8 @@ class StatsExtension implements Extension {
             if (isAnnotated(method)) {
                 String name = name(method.getJavaMember());
                 mappedNames.put(method.getJavaMember(), name);
-                if ((method.isAnnotationPresent(PostConstruct.class) ||
-                     method.isAnnotationPresent(PreDestroy.class))) {
+                if (method.isAnnotationPresent(PostConstruct.class) ||
+                     method.isAnnotationPresent(PreDestroy.class)) {
                     needLifeCycle = true;
                 }
             }

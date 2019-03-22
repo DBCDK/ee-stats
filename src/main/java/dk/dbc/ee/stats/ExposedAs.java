@@ -26,6 +26,6 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface ExposedAs {
 
-    public String value() default "";
+    String value() default "";
 
 }
